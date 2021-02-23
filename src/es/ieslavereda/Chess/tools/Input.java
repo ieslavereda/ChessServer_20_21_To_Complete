@@ -9,7 +9,7 @@ public class Input {
 	public static String getString(String msg) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println(msg);
-		return sc.nextLine();
+		return sc.next();
 	}
 
 	public static int getInt(String msg) {
@@ -36,15 +36,15 @@ public class Input {
 		do {
 			try {
 				texto = getString(msg).toUpperCase();
-				if (msg.length() != 2)
+				if (texto.length() != 2)
 					System.out.println("Solo debes incluir dos caracteres");
-				else if (msg.charAt(0) < 'A' || msg.charAt(0) > 'H')
+				else if (texto.charAt(0) < 'A' || texto.charAt(0) > 'H')
 					System.out.println("La letra debe estar comprendida entre [A-H]");
-				else if (Integer.parseInt(String.valueOf(msg.charAt(1))) < 1
-						|| Integer.parseInt(String.valueOf(msg.charAt(1))) > 8)
+				else if (Integer.parseInt(String.valueOf(texto.charAt(1))) < 1
+						|| Integer.parseInt(String.valueOf(texto.charAt(1))) > 8)
 					System.out.println("El numero debe estar comprendido entre [1-8]");
 				else
-					c = new Coordenada(msg.charAt(0), Integer.parseInt(String.valueOf(msg.charAt(1))));
+					c = new Coordenada(texto.charAt(0), Integer.parseInt(String.valueOf(texto.charAt(1))));
 			} catch (Exception e) {
 				System.out.println("Debes introducir un numero en el segundo caracter.");
 			}
